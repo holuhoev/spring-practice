@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="ru.holuhoev.spring_practice.context.contextSamples.InformationShowerBeanPostProcessor"/>
+    <bean class="ru.holuhoev.spring_practice.context.contextSamples.PostProxyInvokerContextListener"/>
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+
+    <bean class="ru.holuhoev.spring_practice.context.contextSamples.SampleObject" id="firstObject"/>
+    <bean class="ru.holuhoev.spring_practice.context.contextSamples.SampleObject" id="thirdObject">
+        <constructor-arg ref="secondObject"/>
+    </bean>
+    <bean class="ru.holuhoev.spring_practice.context.contextSamples.SampleObject" id="secondObject">
+        <constructor-arg ref="firstObject"/>
+    </bean>
+
+</beans>
